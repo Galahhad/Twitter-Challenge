@@ -67,6 +67,7 @@ module.exports.postController = {
     try {
       const like = req.body.like;
       await Post.findByIdAndUpdate(req.params.id, { $pull: { like } });
+      res.json("Лайк удален");
     } catch (err) {
       res.json({ err: "Произошла ошибка при удалении лайка" });
     }
